@@ -148,7 +148,7 @@ class Animal_Agent():
         
         child_list = []
         val = random.random()
-        if (self.sex == 'F') and (np.mod(abs(time-self.last_litter_time),self.gestation) == 0):
+        if ((self.sex == 'F') and (np.mod(abs(time-self.last_litter_time),self.gestation) == 0)):
             for agent in all_agents:
                 if (agent.ptype=="Prey") and (agent.sex == "M") and (self.get_distance(agent) <= self.mate_range) and (val > (1.0/(1.0+np.exp(-len(all_agents)/self.saturation_pop)))):
                     child_num = int(np.random.normal(7,1))
